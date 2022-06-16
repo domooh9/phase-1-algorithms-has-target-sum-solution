@@ -1,17 +1,42 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+  /*function hasTargetSum array and target
+  iterate over the array of numbers
+  if we reach the end of the array, return false
+ return false;*/ 
+  const seenNumbers = new Set();
+  for (const number of array) {
+    const complement = target - number;
+
+    if (seenNumbers.has(complement)) return true;
+
+    seenNumbers.add(number);
+  }
+  return false;
 }
 
 /* 
   Write the Big O time complexity of your function here
+  Our ineer loop performs n iterations for every iteration of the outer loop,
+   that ends up with O(n*n) or 0(n*2**2) for the time complexity algorithm
+  the amount of memory needed grows linearly with the size of the input array,
+   we dont need to create additional data statructures to store this info so we end up with O(n)
 */
 
 /* 
   Add your pseudocode here
+  iterate over the array of numbers
+  for the current number, identify a complementary number that adds to our target
+  (for example: if our number is 2, and the target is 5, the complementary number is 3)
+  iterate over the remaining numbers in the array
+    check if any of the remaining numbers is the complement
+      if so, return true
+if we reach the end of the array, return fals
 */
 
 /*
   Add written explanation of your solution here
+
 */
 
 // You can run `node index.js` to view these console logs
